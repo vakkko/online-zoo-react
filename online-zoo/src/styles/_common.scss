@@ -1,0 +1,282 @@
+@use "global";
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:math";
+
+header {
+  @include flexColumn;
+
+  .logo-links {
+    @include paddingLeftRight;
+    @include flexAlignCenter;
+    background-color: $orange;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    & > .link-container {
+      @include flexAlignCenter;
+      gap: 6.7rem;
+    }
+
+    .page-navigation > ul {
+      a {
+        color: $black;
+
+        &:hover {
+          color: $lightGreen;
+        }
+      }
+
+      a.active {
+        color: $lightGreen;
+      }
+    }
+
+    .user-box {
+      .user-name {
+        @include subHeaderStyles;
+      }
+      .user-avatar {
+        @include flexAlignCenter();
+        & > img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 1.5rem;
+        }
+      }
+    }
+
+    .pop-up-authorization.hidden,
+    .pop-up-sign-out.hidden {
+      display: none;
+    }
+
+    .pop-up-authorization,
+    .pop-up-sign-out {
+      @include flexColumn(1.5rem);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(197, 130, 99, 0.968);
+      border-radius: 10px;
+      padding: 2rem 4rem;
+      z-index: 1000;
+
+      .btn-cancel-auth {
+        align-self: flex-end;
+        img {
+          width: 20px;
+        }
+      }
+
+      h3 {
+        @include subHeaderStyles();
+        color: $black;
+        text-align: center;
+      }
+
+      ul {
+        @include flexAlignCenter(1.5rem);
+        justify-content: center;
+        li {
+          @include regularText();
+          font-weight: 500;
+          padding-bottom: 1px;
+          &:hover {
+            border-bottom: 1px solid $black;
+          }
+          a {
+            color: $black;
+          }
+        }
+      }
+    }
+
+    .pop-up-sign-out {
+      .btn-cancel-sign-out {
+        align-self: flex-end;
+      }
+      ul > li {
+        color: $white;
+        @include subHeaderStyles();
+        &:hover {
+          border-bottom: none;
+        }
+      }
+      .btn-sign-out {
+        @include buttonStyles(#cf1322, #fff1f0);
+        padding: 1.2rem 2rem;
+        align-self: center;
+      }
+    }
+  }
+  .btn-humburger-menu,
+  .btn-cancel-header {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    .logo-links {
+      @include paddingLeftRightOn1200px;
+    }
+  }
+
+  @media (max-width: 880px) {
+    .page-navigation {
+      display: none;
+    }
+    .social-networks {
+      display: none;
+    }
+
+    .btn-humburger-menu {
+      display: block;
+    }
+
+    .page-navigation.open {
+      @include flexColumn(8rem);
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $darkBlue;
+      padding: 4rem 4.7rem 26.9rem;
+      ul {
+        flex-direction: column;
+        gap: 5rem;
+        padding: 0 4rem;
+        li > a {
+          color: $white;
+        }
+      }
+      .btn-cancel-header {
+        display: block;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+#overlay,
+#auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+}
+
+.hidden {
+  display: none;
+}
+
+.page-navigation > ul {
+  @include flexAlignCenter(4.825rem);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.social-networks {
+  @include flexAlignCenter(3rem);
+}
+
+footer {
+  @include paddingLeftRight;
+  padding-top: 7rem;
+  padding-bottom: 3.6rem;
+  background-color: $darkBlue;
+  .logos-and-links {
+    @include flexAlignCenter();
+    justify-content: space-between;
+    & > div {
+      @include flexAlignCenter(6.5rem);
+    }
+
+    .page-navigation > ul {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $lightGreen;
+        }
+      }
+    }
+
+    button {
+      @include buttonStyles(transparent, $white);
+      @include flexAlignCenter(1rem);
+      border: 1px solid $white;
+      padding: 2.6rem 2.3rem;
+
+      &:hover {
+        background-color: $lightGreen;
+      }
+    }
+  }
+
+  hr {
+    margin: 7rem 0 4.4rem;
+  }
+
+  .credits-and-social-networks {
+    @include flexAlignCenter();
+    justify-content: space-between;
+    .credits {
+      @include flexAlignCenter(5rem);
+      span {
+        @include regularText;
+        color: $white;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding-left: 0;
+    padding-right: 0;
+
+    .logos-and-links,
+    .credits-and-social-networks {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+    .logos-and-links {
+      & > div {
+        gap: 3rem;
+      }
+
+      nav > ul {
+        gap: 2rem;
+      }
+    }
+  }
+  @media (max-width: 880px) {
+    padding-left: 7rem;
+    padding-right: 7rem;
+    .logos-and-links {
+      flex-direction: column;
+      gap: 5rem;
+      & > div,
+      & > nav {
+        width: 100%;
+      }
+      & > div,
+      & > nav > ul {
+        justify-content: space-between;
+      }
+    }
+    .credits-and-social-networks {
+      flex-direction: column-reverse;
+      gap: 3rem;
+      .credits {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+}
