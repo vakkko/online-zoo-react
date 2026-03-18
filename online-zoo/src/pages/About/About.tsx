@@ -1,7 +1,10 @@
 import React from "react";
+import Header from "../../components/Header/Header";
+
+import "../../styles/_common.scss";
 
 const About: React.FC = () => {
-  return <div>About</div>;
+  return <Header />;
 };
 
 export default About;
