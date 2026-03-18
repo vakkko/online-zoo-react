@@ -1,0 +1,53 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/common";
+@use "sass:math";
+
+.panda-container {
+  @include paddingLeftRight;
+  @include flexColumn(5rem);
+  align-items: flex-start;
+  padding-top: 12.9rem;
+  padding-bottom: 12.9rem;
+  background-image: url(/images/about/panda.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (max-width: 1200px) {
+    @include paddingLeftRightOn1200px;
+  }
+
+  h1 {
+    font-weight: 800;
+    font-size: 82px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    width: math.div(890rem, 1200rem) * 100%;
+    color: $lightGreen;
+  }
+
+  p {
+    @include regularText;
+    width: math.div(430rem, 1200rem) * 100%;
+  }
+
+  button {
+    @include buttonStyles($orange, $white);
+    @include flexAlignCenter(1rem);
+    padding: 2.6rem 3rem;
+
+    &:hover {
+      background-color: $orangeHover;
+    }
+  }
+  @media (max-width: 880px) {
+    background-position: top 9rem right -31rem;
+    padding: 5rem 8.3rem 5rem 2rem;
+    h1 {
+      width: 100%;
+    }
+    p {
+      width: 63%;
+    }
+  }
+}

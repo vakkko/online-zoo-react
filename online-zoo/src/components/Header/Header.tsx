@@ -1,11 +1,9 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 
-import PageNavigation from "./PageNavigation/PageNavigation";
-import SocialNetworks from "./SocialNetworks/SocialNetworks";
+import PageNavigation from "../PageNavigation/PageNavigation";
+import SocialNetworks from "../SocialNetworks/SocialNetworks";
 
-import "./Header.scss";
-
-const Header: React.FC = () => {
+const Header: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <header>
       <div className="logo-links">
@@ -54,17 +52,7 @@ const Header: React.FC = () => {
           <img src="../../assets/images/hamburger.png" alt="hamburger menu" />
         </button>
       </div>
-      <div className="panda-container">
-        <h1>Watch your favorite animal online</h1>
-        <p>
-          Explore the exciting and mysterious world of wild animals in a natural
-          setting without leaving your home.
-        </p>
-        <button>
-          view live cam
-          <img src="/images/about/arrow-right.png" alt="right arrow" />
-        </button>
-      </div>
+      {children}
     </header>
   );
 };
