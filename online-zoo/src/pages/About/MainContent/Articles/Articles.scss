@@ -1,0 +1,22 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables";
+@use "../../../../styles/global";
+
+.articles {
+  @include flexColumn(15rem);
+  section {
+    @include paddingLeftRight;
+    @include sectionStyles;
+
+    @media (max-width: 1200px) {
+      @include paddingLeftRightOn1200px;
+    }
+    @media (max-width: 880px) {
+      padding: 0;
+      & > div {
+        width: 100%;
+        padding: 0 2rem;
+      }
+    }
+  }
+}
