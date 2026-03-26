@@ -3,6 +3,7 @@ import React from "react";
 import ArticleAndImg from "../../../../components/ArticleAndImg/ArticleAndImg";
 
 import "./Articles.scss";
+import DonationContainer from "../DonationContainer/DonationContainer";
 
 const Articles: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const Articles: React.FC = () => {
         src="/images/about/two-eagle.png"
         alt="two eagles"
       />
+      <DonationContainer />
     </div>
   );
 };
