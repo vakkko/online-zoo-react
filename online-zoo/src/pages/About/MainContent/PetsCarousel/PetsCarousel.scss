@@ -1,0 +1,9 @@
+@use "../../../../styles/mixins" as *;
+
+.pets-carousel-container {
+  @include flexColumn(5rem);
+  align-items: center;
+  margin-top: 13.6rem;
+  margin-bottom: 15rem;
+  justify-content: center;
+}

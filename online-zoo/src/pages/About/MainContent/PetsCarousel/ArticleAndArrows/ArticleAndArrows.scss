@@ -1,0 +1,60 @@
+@use "../../../../../styles/mixins" as *;
+@use "../../../../../styles/variables" as *;
+
+.article-arrows {
+  width: 47.9%;
+  @include flexColumn(5rem);
+  align-items: center;
+
+  h2 {
+    @include heading2Styles($lightGreen);
+  }
+
+  & > div {
+    @include flexColumn;
+    align-items: center;
+
+    p {
+      @include subHeaderStyles;
+      color: black;
+      width: 100%;
+    }
+  }
+
+  .arrows-box {
+    margin-top: 10rem;
+    display: flex;
+    gap: 5.5rem;
+
+    button {
+      padding: 1.9rem 1.7rem;
+      border-radius: 5px;
+      border: 1px solid $darkBlue;
+
+      svg {
+        fill: $darkBlue;
+      }
+
+      &:hover {
+        background-color: $darkBlue;
+        svg {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 69.1%;
+
+    & > div {
+      p {
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 880px) {
+    width: 100%;
+    text-align: center;
+  }
+}
