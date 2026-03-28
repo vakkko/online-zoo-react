@@ -12,7 +12,6 @@ const Carousel: React.FC = () => {
   if (loading) return <Loader />;
   if (error) return <ErrorFallback />;
 
-  console.log(data);
   return (
     <>
       {data && data.length > 0 && (

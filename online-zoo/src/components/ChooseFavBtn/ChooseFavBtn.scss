@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.choose-fav {
+  @include buttonStyles("", $darkBlue);
+  @include flexAlignCenter(1rem);
+  color: $darkBlue;
+  padding: 2.6rem 3.5rem;
+  border: 1px solid $darkBlue;
+
+  &:hover {
+    @include buttonStyles($darkBlue, $white);
+    border: 1px solid $white;
+  }
+}
