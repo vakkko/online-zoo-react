@@ -4,9 +4,16 @@ import { BASE_URL } from "../consts/consts";
 
 import { useEffect, useState } from "react";
 
+export interface animal {
+  id: number;
+  name: string;
+  commonName: string;
+  description: string;
+}
+
 const useGetData = (query: string) => {
   const [loading, setLoading] = useState<boolean>();
-  const [data, setData] = useState();
+  const [data, setData] = useState<animal[]>();
   const [error, setError] = useState<boolean>();
 
   useEffect(() => {
@@ -18,7 +25,7 @@ const useGetData = (query: string) => {
           setError(true);
           return;
         }
-        setData(response.data);
+        setData(response.data.data);
       } catch (err) {
         setError(true);
         console.error(err);

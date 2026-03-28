@@ -2,8 +2,9 @@ import React from "react";
 
 import ArticleAndArrows from "./ArticleAndArrows/ArticleAndArrows";
 
-import "./PetsCarousel.scss";
 import Carousel from "./Carousel/Carousel";
+
+import "./PetsCarousel.scss";
 
 const PetsCarousel: React.FC = () => {
   return (
