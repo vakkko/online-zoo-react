@@ -6,4 +6,5 @@ export interface PayAndFeedSectionProps {
   iconAlt: string;
   heading: string;
   description: string;
+  hasButton?: boolean;
 }
