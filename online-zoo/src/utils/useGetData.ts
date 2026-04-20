@@ -4,16 +4,9 @@ import { BASE_URL } from "../consts/consts";
 
 import { useEffect, useState } from "react";
 
-export interface animal {
-  id: number;
-  name: string;
-  commonName: string;
-  description: string;
-}
-
-const useGetData = (query: string) => {
+function useGetData<T>(query: string) {
   const [loading, setLoading] = useState<boolean>();
-  const [data, setData] = useState<animal[]>();
+  const [data, setData] = useState<T[]>();
   const [error, setError] = useState<boolean>();
 
   useEffect(() => {
@@ -37,6 +30,6 @@ const useGetData = (query: string) => {
   }, [query]);
 
   return { loading, error, data };
-};
+}
 
 export default useGetData;

@@ -5,12 +5,12 @@ import useGetData from "../../../../../utils/useGetData";
 import Loader from "../../../../../components/Loader/Loader";
 import ErrorFallback from "../../../../../components/ErrorFallback/ErrorFallback";
 
-import type { CarouselProps } from "./Carousel.types";
+import type { Animal, CarouselProps } from "./Carousel.types";
 
 import "./Carousel.scss";
 
 const Carousel: React.FC<CarouselProps> = ({ carouselRef }) => {
-  const { loading, error, data } = useGetData("pets");
+  const { loading, error, data } = useGetData<Animal>("pets");
   if (loading) return <Loader />;
   if (error) return <ErrorFallback />;
 
