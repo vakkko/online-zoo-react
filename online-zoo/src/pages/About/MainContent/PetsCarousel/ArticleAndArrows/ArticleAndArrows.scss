@@ -21,29 +21,6 @@
     }
   }
 
-  .arrows-box {
-    margin-top: 10rem;
-    display: flex;
-    gap: 5.5rem;
-
-    button {
-      padding: 1.9rem 1.7rem;
-      border-radius: 5px;
-      border: 1px solid $darkBlue;
-
-      svg {
-        fill: $darkBlue;
-      }
-
-      &:hover {
-        background-color: $darkBlue;
-        svg {
-          fill: $white;
-        }
-      }
-    }
-  }
-
   @media (max-width: 1200px) {
     width: 69.1%;
 
