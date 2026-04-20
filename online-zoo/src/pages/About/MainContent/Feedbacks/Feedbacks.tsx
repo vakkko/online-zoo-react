@@ -1,6 +1,21 @@
 import React from "react";
 
+import useGetData from "../../../../utils/useGetData";
+
+import Loader from "../../../../components/Loader/Loader";
+import ErrorFallback from "../../../../components/ErrorFallback/ErrorFallback";
+import FeedbackItem from "./FeedBackItem/FeedbackItem";
+
+import type { FeedbackItemProps } from "./FeedBackItem/FeedbackItem.types";
+
+import "./Feedbacks.scss";
+
 const Feedbacks: React.FC = () => {
+  const { data, loading, error } = useGetData<FeedbackItemProps>("/feedback");
+
+  if (loading) return <Loader />;
+  if (error) return <ErrorFallback />;
+
   return (
     <div className="feedback-container">
       <div className="users-feedback">
@@ -13,6 +28,20 @@ const Feedbacks: React.FC = () => {
           </p>
         </div>
         <div className="feedback-carousel-cotainer">
+          <div className="feedback-carousel">
+            {data?.map((feedback) => (
+              <React.Fragment key={feedback.id}>
+                <FeedbackItem
+                  city={feedback.city}
+                  id={feedback.id}
+                  month={feedback.month}
+                  name={feedback.name}
+                  text={feedback.text}
+                  year={feedback.year}
+                />
+              </React.Fragment>
+            ))}
+          </div>
           <div className="arrows-box feedback">
             <button className="left-arrow">
               <svg
