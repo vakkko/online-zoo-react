@@ -6,9 +6,9 @@ export const BASE_URL =
 export const PAY_AND_FEED_SECTIONS: PayAndFeedSectionProps[] = [
   {
     number: "01",
-    imgSrc: "../../assets/images/pay-and-feed/monkey1.png",
+    imgSrc: "./images/pay-and-feed/monkey1.png",
     imgAlt: "monkey",
-    iconSrc: "../../assets/images/pay-and-feed/donation.png",
+    iconSrc: "./images/pay-and-feed/donation.png",
     iconAlt: "heart holded with two hands",
     heading: "Your donation has an impact",
     description:
@@ -16,9 +16,9 @@ export const PAY_AND_FEED_SECTIONS: PayAndFeedSectionProps[] = [
   },
   {
     number: "02",
-    imgSrc: "../../assets/images/pay-and-feed/banana.png",
+    imgSrc: "./images/pay-and-feed/banana.png",
     imgAlt: "banana",
-    iconSrc: "../../assets/images/pay-and-feed/card.png",
+    iconSrc: "./images/pay-and-feed/card.png",
     iconAlt: "card with hand on it",
     heading: "Make a donation",
     description:
@@ -26,9 +26,9 @@ export const PAY_AND_FEED_SECTIONS: PayAndFeedSectionProps[] = [
   },
   {
     number: "03",
-    imgSrc: "../../assets/images/pay-and-feed/monkey2.png",
+    imgSrc: "./images/pay-and-feed/monkey2.png",
     imgAlt: "monkey eating banana",
-    iconSrc: "../../assets/images/pay-and-feed/grocery.png",
+    iconSrc: "./images/pay-and-feed/grocery.png",
     iconAlt: "grocery",
     heading: "Bring your food charity — straight to your favorites pets.",
     description:

@@ -10,6 +10,7 @@ const PayAndFeedSection: React.FC<PayAndFeedSectionProps> = ({
   iconAlt,
   heading,
   description,
+  hasButton,
 }) => {
   return (
     <section>
@@ -23,6 +24,7 @@ const PayAndFeedSection: React.FC<PayAndFeedSectionProps> = ({
           <img src={iconSrc} alt={iconAlt} />
           <h4>{heading}</h4>
           <p>{description}</p>
+          {hasButton && <button>donate now</button>}
         </div>
       </div>
     </section>

@@ -1,0 +1,95 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.pay-and-feed-container {
+  @include paddingLeftRight;
+  @include flexColumn(11.6rem);
+  background-color: $darkBlue;
+  color: $white;
+  padding-bottom: 10rem;
+  padding-top: 9rem;
+
+  h2 {
+    @include heading2Styles;
+  }
+
+  .number-and-line {
+    @include flexAlignCenter(9.3rem);
+    justify-content: space-between;
+    margin-bottom: 8.2rem;
+
+    span {
+      @include subHeaderStyles;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  .donation-main-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16rem;
+
+    div {
+      @include flexColumn;
+      align-items: flex-start;
+      margin-top: 1.9rem;
+
+      h4 {
+        @include subHeaderStyles;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+      }
+
+      p {
+        @include regularText;
+        width: 100%;
+      }
+
+      button {
+        @include buttonStyles($orange, $white);
+        @include flexAlignCenter(1rem);
+        margin-top: 5rem;
+        padding: 2.6rem 3.4rem;
+
+        &:hover {
+          background-color: $orangeHover;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    gap: 9.6rem;
+
+    .donation-main-content {
+      gap: 2rem;
+      .btn-donate {
+        margin-top: 10rem;
+      }
+
+      @media (max-width: 880px) {
+        & > div {
+          align-items: center;
+        }
+      }
+    }
+  }
+  @media (max-width: 880px) {
+    h2 {
+      text-align: center;
+    }
+    section {
+      .donation-main-content {
+        flex-direction: column;
+        & > img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
