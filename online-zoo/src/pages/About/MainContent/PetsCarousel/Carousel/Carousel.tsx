@@ -5,9 +5,11 @@ import useGetData from "../../../../../utils/useGetData";
 import Loader from "../../../../../components/Loader/Loader";
 import ErrorFallback from "../../../../../components/ErrorFallback/ErrorFallback";
 
+import type { CarouselProps } from "./Carousel.types";
+
 import "./Carousel.scss";
 
-const Carousel: React.FC = () => {
+const Carousel: React.FC<CarouselProps> = ({ carouselRef }) => {
   const { loading, error, data } = useGetData("pets");
   if (loading) return <Loader />;
   if (error) return <ErrorFallback />;
@@ -15,7 +17,7 @@ const Carousel: React.FC = () => {
   return (
     <>
       {data && data.length > 0 && (
-        <div className="carousel-container">
+        <div ref={carouselRef} className="carousel-container">
           {data.map(({ commonName, description, id, name }) => (
             <div key={id} className="carousel-item">
               <span>{name}</span>

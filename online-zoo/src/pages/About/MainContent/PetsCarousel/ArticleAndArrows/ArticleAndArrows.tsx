@@ -1,7 +1,23 @@
 import React from "react";
+
+import type { ArticleAndArrowsProps } from "./ArticleAndArrows.types";
+
 import "./ArticleAndArrows.scss";
 
-const ArticleAndArrows: React.FC = () => {
+const ArticleAndArrows: React.FC<ArticleAndArrowsProps> = ({ carouselRef }) => {
+  const handleRightScroll = () => {
+    carouselRef.current?.scrollBy({
+      left: 200,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLeftClick = () => {
+    carouselRef.current?.scrollBy({
+      left: -200,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="article-arrows">
       <h2>meet some our Pets</h2>
@@ -13,7 +29,7 @@ const ArticleAndArrows: React.FC = () => {
           used.
         </p>
         <div className="arrows-box">
-          <button className="left-arrow">
+          <button onClick={handleLeftClick} className="left-arrow">
             <svg
               width="25"
               height="22"
@@ -28,7 +44,7 @@ const ArticleAndArrows: React.FC = () => {
               />
             </svg>
           </button>
-          <button className="right-arrow">
+          <button onClick={handleRightScroll} className="right-arrow">
             <svg
               width="25"
               height="22"
