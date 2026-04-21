@@ -1,3 +1,4 @@
+import type { AnimalCareSectionProps } from "../pages/About/MainContent/AnimalCaring/AnimalCareSection/AnimalCareSection.types";
 import type { PayAndFeedSectionProps } from "../pages/About/MainContent/PayAndFeed/PayAndFeedSection/PayAndFeedSection.types";
 
 export const BASE_URL =
@@ -34,5 +35,28 @@ export const PAY_AND_FEED_SECTIONS: PayAndFeedSectionProps[] = [
     description:
       "After your donation, the animal receives its favorite foods. You can support your favorite animals or any animal you care about and make a real personal impact. Never doubt that your donation can make a difference even if it is small.",
     hasButton: true,
+  },
+];
+
+export const ANIMAL_CARING_SECTIONS: AnimalCareSectionProps[] = [
+  {
+    animal: "panda",
+    description:
+      "Your $30 could give Lucas a slice of panda cake, made with our secret recipe.",
+  },
+  {
+    animal: "tiger",
+    description:
+      "Your $150 will help to care for Senja, a Sumatran tiger, for three weeks.",
+  },
+  {
+    animal: "lemur",
+    description:
+      " With your support, we can give Andy his favorite fruits. Especially when it's not fruit season in its natural habitat.",
+  },
+  {
+    animal: "two-eagles",
+    description:
+      "Sam & Lora have hatched and raised numerous young and will be happy with your help.",
   },
 ];
