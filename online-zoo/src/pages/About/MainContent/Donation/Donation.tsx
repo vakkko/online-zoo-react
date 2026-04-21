@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./DonationContainer.scss";
+import "./Donation.scss";
 
-const DonationContainer: React.FC = () => {
+const Donation: React.FC = () => {
   return (
     <div className="donation-container">
       <div>
@@ -23,4 +23,4 @@ const DonationContainer: React.FC = () => {
   );
 };
 
-export default DonationContainer;
+export default Donation;

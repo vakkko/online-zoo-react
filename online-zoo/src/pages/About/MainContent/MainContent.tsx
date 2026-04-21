@@ -6,6 +6,7 @@ import PayAndFeed from "./PayAndFeed/PayAndFeed";
 import Feedbacks from "./Feedbacks/Feedbacks";
 
 import "./MainContent.scss";
+import AnimalCaring from "./AnimalCaring/AnimalCaring";
 
 const MainContent: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const MainContent: React.FC = () => {
       <PetsCarousel />
       <PayAndFeed />
       <Feedbacks />
+      <AnimalCaring />
     </main>
   );
 };

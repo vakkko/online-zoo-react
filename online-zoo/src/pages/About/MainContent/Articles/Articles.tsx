@@ -2,8 +2,9 @@ import React from "react";
 
 import ArticleAndImg from "../../../../components/ArticleAndImg/ArticleAndImg";
 
+import Donation from "../Donation/Donation";
+
 import "./Articles.scss";
-import DonationContainer from "../DonationContainer/DonationContainer";
 
 const Articles: React.FC = () => {
   return (
@@ -32,7 +33,7 @@ const Articles: React.FC = () => {
         src="/images/about/two-eagle.png"
         alt="two eagles"
       />
-      <DonationContainer />
+      <Donation />
     </div>
   );
 };
