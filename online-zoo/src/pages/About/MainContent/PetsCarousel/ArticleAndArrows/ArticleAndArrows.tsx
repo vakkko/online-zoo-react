@@ -4,23 +4,14 @@ import ArrowsBox from "../../../../../components/ArrowsBox/ArrowsBox";
 
 import type { ArticleAndArrowsProps } from "./ArticleAndArrows.types";
 
+import {
+  handleLeftScroll,
+  handleRightScroll,
+} from "../../../../../utils/utils";
+
 import "./ArticleAndArrows.scss";
 
 const ArticleAndArrows: React.FC<ArticleAndArrowsProps> = ({ carouselRef }) => {
-  const handleRightScroll = () => {
-    carouselRef.current?.scrollBy({
-      left: 200,
-      behavior: "smooth",
-    });
-  };
-
-  const handleLeftScroll = () => {
-    carouselRef.current?.scrollBy({
-      left: -200,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="article-arrows">
       <h2>meet some our Pets</h2>
@@ -32,8 +23,8 @@ const ArticleAndArrows: React.FC<ArticleAndArrowsProps> = ({ carouselRef }) => {
           used.
         </p>
         <ArrowsBox
-          handleLeftScroll={handleLeftScroll}
-          handleRightScroll={handleRightScroll}
+          handleLeftScroll={() => handleLeftScroll(carouselRef)}
+          handleRightScroll={() => handleRightScroll(carouselRef)}
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import useGetData from "../../../../utils/useGetData";
+import useGetData from "../../../../hooks/useGetData";
 
 import Loader from "../../../../components/Loader/Loader";
 import ErrorFallback from "../../../../components/ErrorFallback/ErrorFallback";
