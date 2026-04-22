@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ANIMAL_CARING_SECTIONS } from "../../../../consts/consts";
+import { ANIMAL_CARING_SECTIONS } from "../../../consts/consts";
 
 import AnimalCareSection from "./AnimalCareSection/AnimalCareSection";
 

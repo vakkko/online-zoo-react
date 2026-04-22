@@ -5,7 +5,7 @@ import ArticleAndArrows from "./ArticleAndArrows/ArticleAndArrows";
 import Carousel from "./Carousel/Carousel";
 
 import "./PetsCarousel.scss";
-import ChooseFavBtn from "../../../../components/ChooseFavBtn/ChooseFavBtn";
+import ChooseFavBtn from "../../../components/ChooseFavBtn/ChooseFavBtn";
 
 const PetsCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);

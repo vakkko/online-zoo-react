@@ -1,6 +1,6 @@
 import React from "react";
 
-import ArticleAndImg from "../../../../components/ArticleAndImg/ArticleAndImg";
+import ArticleAndImg from "../../../components/ArticleAndImg/ArticleAndImg";
 
 import Donation from "../Donation/Donation";
 

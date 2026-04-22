@@ -1,9 +1,9 @@
 import React from "react";
 
-import useGetData from "../../../../../hooks/useGetData";
+import useGetData from "../../../../hooks/useGetData";
 
-import Loader from "../../../../../components/Loader/Loader";
-import ErrorFallback from "../../../../../components/ErrorFallback/ErrorFallback";
+import Loader from "../../../../components/Loader/Loader";
+import ErrorFallback from "../../../../components/ErrorFallback/ErrorFallback";
 
 import type { Animal, CarouselProps } from "./Carousel.types";
 

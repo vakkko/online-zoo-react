@@ -1,5 +1,5 @@
-import type { AnimalCareSectionProps } from "../pages/About/MainContent/AnimalCaring/AnimalCareSection/AnimalCareSection.types";
-import type { PayAndFeedSectionProps } from "../pages/About/MainContent/PayAndFeed/PayAndFeedSection/PayAndFeedSection.types";
+import type { AnimalCareSectionProps } from "../pages/About/AnimalCaring/AnimalCareSection/AnimalCareSection.types";
+import type { PayAndFeedSectionProps } from "../pages/About/PayAndFeed/PayAndFeedSection/PayAndFeedSection.types";
 
 export const BASE_URL =
   "https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod";

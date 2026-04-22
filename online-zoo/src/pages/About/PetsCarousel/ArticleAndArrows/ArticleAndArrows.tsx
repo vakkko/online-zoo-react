@@ -1,13 +1,10 @@
 import React from "react";
 
-import ArrowsBox from "../../../../../components/ArrowsBox/ArrowsBox";
+import ArrowsBox from "../../../../components/ArrowsBox/ArrowsBox";
 
 import type { ArticleAndArrowsProps } from "./ArticleAndArrows.types";
 
-import {
-  handleLeftScroll,
-  handleRightScroll,
-} from "../../../../../utils/utils";
+import { handleLeftScroll, handleRightScroll } from "../../../../utils/utils";
 
 import "./ArticleAndArrows.scss";
 

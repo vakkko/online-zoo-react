@@ -1,7 +1,8 @@
-@use "../../../../styles/mixins" as *;
+@use "../../../styles/mixins" as *;
 
 .articles {
   @include flexColumn(15rem);
+  margin-top: 15rem;
   section {
     @include paddingLeftRight;
     @include sectionStyles;

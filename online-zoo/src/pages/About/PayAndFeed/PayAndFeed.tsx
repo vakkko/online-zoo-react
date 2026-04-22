@@ -2,7 +2,7 @@ import React from "react";
 
 import PayAndFeedSection from "./PayAndFeedSection/PayAndFeedSection";
 
-import { PAY_AND_FEED_SECTIONS } from "../../../../consts/consts";
+import { PAY_AND_FEED_SECTIONS } from "../../../consts/consts";
 
 import "./PayAndFeed.styles.scss";
 

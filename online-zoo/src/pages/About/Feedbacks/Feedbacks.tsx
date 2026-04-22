@@ -1,16 +1,16 @@
 import React, { useRef } from "react";
 
-import useGetData from "../../../../hooks/useGetData";
+import useGetData from "../../../hooks/useGetData";
 
-import Loader from "../../../../components/Loader/Loader";
-import ErrorFallback from "../../../../components/ErrorFallback/ErrorFallback";
+import Loader from "../../../components/Loader/Loader";
+import ErrorFallback from "../../../components/ErrorFallback/ErrorFallback";
 import FeedbackItem from "./FeedBackItem/FeedbackItem";
 
 import type { FeedbackItemProps } from "./FeedBackItem/FeedbackItem.types";
 
 import "./Feedbacks.scss";
-import ArrowsBox from "../../../../components/ArrowsBox/ArrowsBox";
-import { handleLeftScroll, handleRightScroll } from "../../../../utils/utils";
+import ArrowsBox from "../../../components/ArrowsBox/ArrowsBox";
+import { handleLeftScroll, handleRightScroll } from "../../../utils/utils";
 
 const Feedbacks: React.FC = () => {
   const { data, loading, error } = useGetData<FeedbackItemProps>("/feedback");
