@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "../../components/Header/Header";
 
+import Header from "../../components/Header/Header";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import MainContent from "./MainContent/MainContent";
+import Footer from "../../components/Footer/Footer";
 
 import "../../styles/_common.scss";
-import MainContent from "./MainContent/MainContent";
 
 const About: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const About: React.FC = () => {
         <HeroBanner />
       </Header>
       <MainContent />
+      <Footer />
     </>
   );
 };

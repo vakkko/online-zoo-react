@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router";
 
+import "./PageNavigation.scss";
+
 const PageNavigation: React.FC = () => {
   return (
     <nav className="page-navigation">

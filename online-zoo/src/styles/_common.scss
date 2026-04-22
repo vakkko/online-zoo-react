@@ -19,20 +19,6 @@ header {
       gap: 6.7rem;
     }
 
-    .page-navigation > ul {
-      a {
-        color: $black;
-
-        &:hover {
-          color: $lightGreen;
-        }
-      }
-
-      a.active {
-        color: $lightGreen;
-      }
-    }
-
     .user-box {
       .user-name {
         @include subHeaderStyles;
@@ -113,8 +99,7 @@ header {
       }
     }
   }
-  .btn-humburger-menu,
-  .btn-cancel-header {
+  .btn-humburger-menu {
     display: none;
   }
 
@@ -125,36 +110,12 @@ header {
   }
 
   @media (max-width: 880px) {
-    .page-navigation {
-      display: none;
-    }
     .social-networks {
       display: none;
     }
 
     .btn-humburger-menu {
       display: block;
-    }
-
-    .page-navigation.open {
-      @include flexColumn(8rem);
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: $darkBlue;
-      padding: 4rem 4.7rem 26.9rem;
-      ul {
-        flex-direction: column;
-        gap: 5rem;
-        padding: 0 4rem;
-        li > a {
-          color: $white;
-        }
-      }
-      .btn-cancel-header {
-        display: block;
-        align-self: flex-end;
-      }
     }
   }
 }
@@ -172,14 +133,6 @@ header {
 
 .hidden {
   display: none;
-}
-
-.page-navigation > ul {
-  @include flexAlignCenter(4.825rem);
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 150%;
 }
 
 .social-networks {
