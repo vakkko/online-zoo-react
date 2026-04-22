@@ -43,6 +43,9 @@ const AnimalCaring: React.FC = () => {
           />
         </svg>
       </button>
+      <div className="animal-on-screen">
+        <img src="./images/about/lemur-on-screen.png" alt="lemur on screen" />
+      </div>
     </div>
   );
 };

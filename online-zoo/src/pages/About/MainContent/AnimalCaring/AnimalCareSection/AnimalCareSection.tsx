@@ -2,12 +2,14 @@ import React from "react";
 
 import type { AnimalCareSectionProps } from "./AnimalCareSection.types";
 
+import "./AnimalCareSection.scss";
+
 const AnimalCareSection: React.FC<AnimalCareSectionProps> = ({
   animal,
   description,
 }) => {
   return (
-    <section>
+    <section className="animal-care-section">
       <div>
         <img
           src={`./images/animal-care/${animal}.png`}
