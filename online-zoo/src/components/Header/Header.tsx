@@ -1,9 +1,9 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 
 import PageNavigation from "../PageNavigation/PageNavigation";
 import SocialNetworks from "../SocialNetworks/SocialNetworks";
 
-const Header: React.FC<{ children: ReactNode }> = ({ children }) => {
+const Header: React.FC = () => {
   return (
     <header>
       <div className="logo-links">
@@ -52,7 +52,6 @@ const Header: React.FC<{ children: ReactNode }> = ({ children }) => {
           <img src="../../assets/images/hamburger.png" alt="hamburger menu" />
         </button>
       </div>
-      {children}
     </header>
   );
 };
