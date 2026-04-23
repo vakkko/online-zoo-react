@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Link } from "react-router";
 
 import PageNavigation from "../PageNavigation/PageNavigation";
 import SocialNetworks from "../SocialNetworks/SocialNetworks";
 
 const Header: React.FC = () => {
+  const [showAuthorization, setShowAuthorization] = useState<boolean>(false);
+
+  const handleAuthorizationToggle = () => {
+    setShowAuthorization((prev) => !prev);
+  };
+
   return (
     <header>
       <div className="logo-links">
@@ -11,41 +19,22 @@ const Header: React.FC = () => {
         <PageNavigation />
         <SocialNetworks />
         <div className="user-box">
-          <button className="user-avatar">
+          <button onClick={handleAuthorizationToggle} className="user-avatar">
             <img src="./images/about/profile.png" alt="user" />
             <span className="user-name hidden"></span>
           </button>
-          <div className="pop-up-authorization hidden">
-            <button className="btn-cancel-auth">
-              <img
-                src="../../assets/images/donation-pop-up/x.png"
-                alt="cancel icon"
-              />
-            </button>
-
-            <h3>Would you like to sign in or register?</h3>
-            <ul>
-              <li>
-                <a href="../signIn/index.html">Sign in</a>
-              </li>
-              <li>
-                <a href="../register/index.html">Register</a>
-              </li>
-            </ul>
-          </div>
-          <div className="pop-up-sign-out hidden">
-            <button className="btn-cancel-sign-out">
-              <img
-                src="../../assets/images/donation-pop-up/x.png"
-                alt="cancel icon"
-              />
-            </button>
-            <ul>
-              <li className="user-name"></li>
-              <li className="user-email"></li>
-            </ul>
-            <button className="btn-sign-out">Sign Out</button>
-          </div>
+          {showAuthorization && (
+            <div className="authorization-box">
+              <ul>
+                <li>
+                  <Link to={"login"}>Sign in</Link>
+                </li>
+                <li>
+                  <Link to={"register"}>Register</Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         <div id="auth-overlay" className="hidden"></div>
         <button className="btn-humburger-menu">
