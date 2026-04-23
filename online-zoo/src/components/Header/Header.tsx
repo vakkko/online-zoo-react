@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 import PageNavigation from "../PageNavigation/PageNavigation";
 import SocialNetworks from "../SocialNetworks/SocialNetworks";
@@ -8,8 +8,15 @@ import SocialNetworks from "../SocialNetworks/SocialNetworks";
 const Header: React.FC = () => {
   const [showAuthorization, setShowAuthorization] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
   const handleAuthorizationToggle = () => {
     setShowAuthorization((prev) => !prev);
+  };
+
+  const handleNavigate = () => {
+    navigate("/login");
+    setShowAuthorization(false);
   };
 
   return (
@@ -27,10 +34,10 @@ const Header: React.FC = () => {
             <div className="authorization-box">
               <ul>
                 <li>
-                  <Link to={"login"}>Sign in</Link>
+                  <a onClick={handleNavigate}>Sign in</a>
                 </li>
                 <li>
-                  <Link to={"register"}>Register</Link>
+                  <a>Register</a>
                 </li>
               </ul>
             </div>
