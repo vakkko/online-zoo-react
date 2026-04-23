@@ -36,9 +36,7 @@
     }
 
     form {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem;
+      @include flexColumn(1rem);
 
       label {
         margin-bottom: 1rem;
@@ -48,8 +46,9 @@
       }
 
       input {
+        margin-top: 0.5rem;
+        width: 100%;
         padding: 10px;
-        margin-bottom: 5px;
         border: 1px solid #ddd;
         border-radius: 4px;
         font-size: 1.5rem;

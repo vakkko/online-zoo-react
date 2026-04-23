@@ -1,5 +1,7 @@
 import React from "react";
 
+import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
+
 import "../../styles/Authorization.scss";
 
 const Login: React.FC = () => {
@@ -9,38 +11,26 @@ const Login: React.FC = () => {
         <div className="registration-card">
           <h3>Sign In</h3>
           <form>
-            <label htmlFor="login">Log in</label>
-            <input
+            <InputAndLabel
+              label="Log in"
               type="text"
-              id="login"
-              min="3"
+              name="login"
+              autocomplete="off"
               placeholder="Enter username"
-              required
-              autoComplete="off"
             />
-            <p className="err-msg login hidden">
-              Login should be at least 3 characters and only Englishe letters
-              are allowed
-            </p>
 
-            <label htmlFor="password">Password</label>
-            <input
-              placeholder="Password"
+            <InputAndLabel
+              label="Password"
               type="password"
-              id="password"
-              min="6"
-              autoComplete="new-password"
-              required
+              name="password"
+              autocomplete="new-password"
+              placeholder="Password"
             />
-            <p className="err-msg password hidden">
-              Passowrd should be at least 6 characters and 1 special character
-            </p>
 
             <button disabled type="submit">
               Sign In
             </button>
           </form>
-          <p className="response-msg hidden"></p>
         </div>
       </div>
     </main>
