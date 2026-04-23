@@ -8,11 +8,13 @@ const InputAndLabel: React.FC<InputAndLabelProps> = ({
   name,
   placeholder,
   autocomplete,
+  register,
 }) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label> <br />
       <input
+        {...register(name)}
         type={type}
         id={name}
         placeholder={placeholder}

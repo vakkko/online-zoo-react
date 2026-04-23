@@ -1,10 +1,14 @@
 import React from "react";
 
+import { useForm } from "react-hook-form";
+
 import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
 
 import "../../styles/Authorization.scss";
 
 const Login: React.FC = () => {
+  const { register } = useForm();
+
   return (
     <main className="authorization-main">
       <div className="registration-container">
@@ -17,6 +21,7 @@ const Login: React.FC = () => {
               name="login"
               autocomplete="off"
               placeholder="Enter username"
+              register={register}
             />
 
             <InputAndLabel
@@ -25,6 +30,7 @@ const Login: React.FC = () => {
               name="password"
               autocomplete="new-password"
               placeholder="Password"
+              register={register}
             />
 
             <button disabled type="submit">
