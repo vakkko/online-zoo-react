@@ -1,13 +1,19 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { LoginSchema, type LoginSchemaTypes } from "../../schemas/AuthSchema";
 
 import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
 
 import "../../styles/Authorization.scss";
 
 const Login: React.FC = () => {
-  const { register } = useForm();
+  const { register } = useForm<LoginSchemaTypes>({
+    resolver: yupResolver(LoginSchema),
+    mode: "onBlur",
+  });
 
   return (
     <main className="authorization-main">
