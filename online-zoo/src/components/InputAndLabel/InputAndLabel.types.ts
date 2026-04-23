@@ -1,4 +1,4 @@
-import type { UseFormRegister } from "react-hook-form";
+import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import type { LoginSchemaTypes } from "../../schemas/AuthSchema";
 
 export interface InputAndLabelProps {
@@ -8,4 +8,5 @@ export interface InputAndLabelProps {
   placeholder: string;
   autocomplete: string;
   register: UseFormRegister<LoginSchemaTypes>;
+  errors: FieldErrors<LoginSchemaTypes>;
 }

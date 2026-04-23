@@ -9,6 +9,7 @@ const InputAndLabel: React.FC<InputAndLabelProps> = ({
   placeholder,
   autocomplete,
   register,
+  errors,
 }) => {
   return (
     <div>
@@ -20,6 +21,7 @@ const InputAndLabel: React.FC<InputAndLabelProps> = ({
         placeholder={placeholder}
         autoComplete={autocomplete}
       />
+      <p className="error-message">{errors[name]?.message}</p>
     </div>
   );
 };

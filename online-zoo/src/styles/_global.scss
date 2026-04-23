@@ -45,7 +45,10 @@ textarea {
 
 .error-message,
 .loader {
-  @include subHeaderStyles();
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 130%;
+  margin-top: 0.5rem;
 }
 
 .error-message {

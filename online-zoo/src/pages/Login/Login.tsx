@@ -10,7 +10,10 @@ import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
 import "../../styles/Authorization.scss";
 
 const Login: React.FC = () => {
-  const { register } = useForm<LoginSchemaTypes>({
+  const {
+    register,
+    formState: { errors },
+  } = useForm<LoginSchemaTypes>({
     resolver: yupResolver(LoginSchema),
     mode: "onBlur",
   });
@@ -28,6 +31,7 @@ const Login: React.FC = () => {
               autocomplete="off"
               placeholder="Enter username"
               register={register}
+              errors={errors}
             />
 
             <InputAndLabel
@@ -37,6 +41,7 @@ const Login: React.FC = () => {
               autocomplete="new-password"
               placeholder="Password"
               register={register}
+              errors={errors}
             />
 
             <button disabled type="submit">
