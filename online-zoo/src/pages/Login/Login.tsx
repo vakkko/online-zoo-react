@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useNavigate } from "react-router";
 
@@ -25,6 +25,8 @@ const Login: React.FC = () => {
     mode: "onBlur",
   });
 
+  const [serverError, setServerError] = useState<string>();
+
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<LoginSchemaTypes> = (data) => {
@@ -36,8 +38,11 @@ const Login: React.FC = () => {
           throw new Error("Somegin went wrong");
         }
         navigate("/");
-      } catch (err) {
-        console.error(err);
+      } catch (err: unknown) {
+        if (axios.isAxiosError(err)) {
+          const serverResponse = err.response?.data;
+          setServerError(serverResponse?.error || "Unexpected error occured");
+        }
       }
     }
     sendData();
@@ -68,7 +73,7 @@ const Login: React.FC = () => {
               register={register}
               errors={errors}
             />
-
+            {serverError && <p className="error-message">{serverError}</p>}
             <button disabled={!isValid} type="submit">
               Sign In
             </button>
