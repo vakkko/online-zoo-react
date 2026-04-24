@@ -14,6 +14,7 @@ import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
 import { BASE_URL } from "../../consts/consts";
 
 import "../../styles/Authorization.scss";
+import AuthForm from "../../components/AuthForm/AuthForm";
 
 const Login: React.FC = () => {
   const {
@@ -49,38 +50,33 @@ const Login: React.FC = () => {
   };
 
   return (
-    <main className="authorization-main">
-      <div className="registration-container">
-        <div className="registration-card">
-          <h3>Sign In</h3>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <InputAndLabel
-              label="Log in"
-              type="text"
-              name="login"
-              autocomplete="off"
-              placeholder="Enter username"
-              register={register}
-              errors={errors}
-            />
+    <AuthForm>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <InputAndLabel
+          label="Log in"
+          type="text"
+          name="login"
+          autocomplete="off"
+          placeholder="Enter username"
+          register={register}
+          errors={errors}
+        />
 
-            <InputAndLabel
-              label="Password"
-              type="password"
-              name="password"
-              autocomplete="new-password"
-              placeholder="Password"
-              register={register}
-              errors={errors}
-            />
-            {serverError && <p className="error-message">{serverError}</p>}
-            <button disabled={!isValid} type="submit">
-              Sign In
-            </button>
-          </form>
-        </div>
-      </div>
-    </main>
+        <InputAndLabel
+          label="Password"
+          type="password"
+          name="password"
+          autocomplete="new-password"
+          placeholder="Password"
+          register={register}
+          errors={errors}
+        />
+        {serverError && <p className="error-message">{serverError}</p>}
+        <button disabled={!isValid} type="submit">
+          Sign In
+        </button>
+      </form>
+    </AuthForm>
   );
 };
 

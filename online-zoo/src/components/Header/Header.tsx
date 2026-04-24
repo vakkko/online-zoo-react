@@ -14,8 +14,8 @@ const Header: React.FC = () => {
     setShowAuthorization((prev) => !prev);
   };
 
-  const handleNavigate = () => {
-    navigate("/login");
+  const handleNavigate = (url: string) => {
+    navigate(url);
     setShowAuthorization(false);
   };
 
@@ -34,10 +34,10 @@ const Header: React.FC = () => {
             <div className="authorization-box">
               <ul>
                 <li>
-                  <a onClick={handleNavigate}>Sign in</a>
+                  <a onClick={() => handleNavigate("/login")}>Sign in</a>
                 </li>
                 <li>
-                  <a>Register</a>
+                  <a onClick={() => handleNavigate("/register")}>Register</a>
                 </li>
               </ul>
             </div>

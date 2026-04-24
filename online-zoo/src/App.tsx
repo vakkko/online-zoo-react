@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router";
 
 import About from "./pages/About/About";
 import RootLayout from "./layout/RootLayout";
+import Login from "./pages/Login/Login";
 
 import "./styles/_global.scss";
-import Login from "./pages/Login/Login";
 
 const App: React.FC = () => {
   return (
