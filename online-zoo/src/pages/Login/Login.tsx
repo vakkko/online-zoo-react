@@ -33,11 +33,7 @@ const Login: React.FC = () => {
   const onSubmit: SubmitHandler<LoginSchemaTypes> = (data) => {
     async function sendData() {
       try {
-        const response = await axios.post(`${BASE_URL}/auth/login`, data);
-        console.log("response", response);
-        if (response.statusText !== "OK") {
-          throw new Error("Somegin went wrong");
-        }
+        await axios.post(`${BASE_URL}/auth/login`, data);
         router.push("/");
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
