@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router";
+import { useRouter } from "next/navigation";
 
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 
   const [serverError, setServerError] = useState<string>();
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<LoginSchemaTypes> = (data) => {
     async function sendData() {
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
         if (response.statusText !== "OK") {
           throw new Error("Somegin went wrong");
         }
-        navigate("/");
+        router.push("/");
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
           const serverResponse = err.response?.data;

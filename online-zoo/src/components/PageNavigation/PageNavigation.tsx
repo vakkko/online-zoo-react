@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router";
+import Link from "next/link";
 
 import "./PageNavigation.scss";
 
@@ -12,7 +12,7 @@ const PageNavigation: React.FC = () => {
       </button>
       <ul>
         <li>
-          <Link to={"/"}>about</Link>
+          <Link href={"/"}>about</Link>
         </li>
         <li>
           <a href="../map/index.html">map</a>

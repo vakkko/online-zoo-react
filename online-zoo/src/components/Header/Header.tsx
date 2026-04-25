@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router";
+import { useRouter } from "next/navigation";
 
 import PageNavigation from "../PageNavigation/PageNavigation";
 import SocialNetworks from "../SocialNetworks/SocialNetworks";
@@ -8,14 +10,14 @@ import SocialNetworks from "../SocialNetworks/SocialNetworks";
 const Header: React.FC = () => {
   const [showAuthorization, setShowAuthorization] = useState<boolean>(false);
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleAuthorizationToggle = () => {
     setShowAuthorization((prev) => !prev);
   };
 
   const handleNavigate = (url: string) => {
-    navigate(url);
+    router.push(url);
     setShowAuthorization(false);
   };
 
