@@ -10,7 +10,7 @@ const FeedbackItem: React.FC<FeedbackItemProps> = ({
 }) => {
   return (
     <section>
-      <img src="./images/about/quote.png" alt="quote" />
+      <img src="/images/about/quote.png" alt="quote" />
       <h4>
         {city}, {month} {year}
       </h4>

@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <SocialNetworks />
         <div className="user-box">
           <button onClick={handleAuthorizationToggle} className="user-avatar">
-            <img src="./images/about/profile.png" alt="user" />
+            <img src="/images/about/profile.png" alt="user" />
             <span className="user-name hidden"></span>
           </button>
           {showAuthorization && (
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
         </div>
         <div id="auth-overlay" className="hidden"></div>
         <button className="btn-humburger-menu">
-          <img src="../../assets/images/hamburger.png" alt="hamburger menu" />
+          <img src="/images/about/hamburger.png" alt="hamburger menu" />
         </button>
       </div>
     </header>

@@ -16,7 +16,7 @@ const AnimalCaring: React.FC = () => {
         </p>
       </div>
       <div className="feed-animal-container">
-        <img src="./images/animal-care/koala.png" alt="koala" />
+        <img src="/images/animal-care/koala.png" alt="koala" />
         {ANIMAL_CARING_SECTIONS.map((animal, i) => (
           <React.Fragment key={i}>
             <AnimalCareSection
@@ -44,7 +44,7 @@ const AnimalCaring: React.FC = () => {
         </svg>
       </button>
       <div className="animal-on-screen">
-        <img src="./images/about/lemur-on-screen.png" alt="lemur on screen" />
+        <img src="/images/about/lemur-on-screen.png" alt="lemur on screen" />
       </div>
     </div>
   );
