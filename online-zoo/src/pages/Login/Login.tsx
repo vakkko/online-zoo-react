@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
+import axios from "axios";
+
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import axios from "axios";
 
 import { LoginSchema, type LoginSchemaTypes } from "../../schemas/AuthSchema";
 
 import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
+import AuthForm from "../../components/AuthForm/AuthForm";
 
 import { BASE_URL } from "../../consts/consts";
 
 import "../../styles/Authorization.scss";
-import AuthForm from "../../components/AuthForm/AuthForm";
 
 const Login: React.FC = () => {
   const {
@@ -46,7 +46,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <AuthForm>
+    <AuthForm heading="Log In">
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputAndLabel
           label="Log in"
