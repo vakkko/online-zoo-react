@@ -8,28 +8,36 @@ import AuthForm from "@/components/AuthForm/AuthForm";
 import InputAndLabel from "@/components/InputAndLabel/InputAndLabel";
 
 import "../../styles/Authorization.scss";
+import {
+  type ResgisterSchemaTypes,
+  RegisterSchema,
+} from "@/schemas/AuthSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const Register: React.FC = () => {
   const {
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm<ResgisterSchemaTypes>({
+    resolver: yupResolver(RegisterSchema),
+    mode: "onBlur",
+  });
   return (
     <AuthForm heading="Register">
       <form>
         <InputAndLabel
           label="Login"
-          id="login"
+          name="login"
           type="text"
           placeholder="Enter username"
           autocomplete="off"
           register={register}
-          error={errors}
+          errors={errors}
         />
 
         <InputAndLabel
           label="Email"
-          id="email"
+          name="email"
           type="email"
           placeholder="Enter email"
           autocomplete="email"
@@ -39,7 +47,7 @@ const Register: React.FC = () => {
 
         <InputAndLabel
           label="Password"
-          id="password"
+          name="password"
           type="password"
           placeholder="Password"
           autocomplete="new-password"
@@ -49,7 +57,7 @@ const Register: React.FC = () => {
 
         <InputAndLabel
           label="Confirm password"
-          id="confirmpassword"
+          name="confirm_password"
           type="password"
           placeholder="Confirm password"
           autocomplete="new-password"
@@ -59,7 +67,7 @@ const Register: React.FC = () => {
 
         <InputAndLabel
           label="Name"
-          id="name"
+          name="name"
           type="text"
           placeholder="name"
           autocomplete="username"
