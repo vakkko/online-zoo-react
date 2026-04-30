@@ -38,6 +38,17 @@
     form {
       @include flexColumn(1rem);
 
+      .input-box {
+        position: relative;
+
+        .eye-icon {
+          position: absolute;
+          top: 35px;
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+
       label {
         margin-bottom: 1rem;
         font-weight: 600;

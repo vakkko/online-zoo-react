@@ -11,5 +11,5 @@ export interface InputAndLabelProps {
   placeholder: string;
   autocomplete: string;
   register: UseFormRegister<LoginSchemaTypes | ResgisterSchemaTypes>;
-  errors: FieldErrors<LoginSchemaTypes | ResgisterSchemaTypes>;
+  errors: FieldErrors<ResgisterSchemaTypes>;
 }

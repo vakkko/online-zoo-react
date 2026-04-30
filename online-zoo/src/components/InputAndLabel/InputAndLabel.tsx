@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import type { InputAndLabelProps } from "./InputAndLabel.types";
 
@@ -11,12 +11,44 @@ const InputAndLabel: React.FC<InputAndLabelProps> = ({
   register,
   errors,
 }) => {
+  const [inputType, setInputType] = useState<string>(type);
+
+  const handleChangeType = () => {
+    setInputType((prev) => (prev === "password" ? "text" : "password"));
+  };
+
   return (
-    <div>
+    <div className="input-box">
+      {type === "password" && (
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          className="eye-icon"
+          onClick={handleChangeType}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.05938 11.348C0.980208 11.1235 0.980208 10.8765 1.05938 10.652C1.83045 8.68365 3.13931 7.00069 4.82002 5.81644C6.50073 4.6322 8.47759 4 10.5 4C12.5224 4 14.4993 4.6322 16.18 5.81644C17.8607 7.00069 19.1695 8.68365 19.9406 10.652C20.0198 10.8765 20.0198 11.1235 19.9406 11.348C19.1695 13.3163 17.8607 14.9993 16.18 16.1836C14.4993 17.3678 12.5224 18 10.5 18C8.47759 18 6.50073 17.3678 4.82002 16.1836C3.13931 14.9993 1.83045 13.3163 1.05938 11.348Z"
+            stroke="#ADADAD"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10.5001 14.0005C12.0741 14.0005 13.35 12.6573 13.35 11.0003C13.35 9.34326 12.0741 8 10.5001 8C8.92619 8 7.65027 9.34326 7.65027 11.0003C7.65027 12.6573 8.92619 14.0005 10.5001 14.0005Z"
+            stroke="#ADADAD"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
       <label htmlFor={name}>{label}</label> <br />
       <input
         {...register(name)}
-        type={type}
+        type={inputType}
         id={name}
         placeholder={placeholder}
         autoComplete={autocomplete}
