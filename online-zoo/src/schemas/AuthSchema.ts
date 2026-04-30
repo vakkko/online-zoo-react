@@ -10,7 +10,7 @@ export const LoginSchema = yup.object({
   login: yup
     .string()
     .required(requiredText("Login"))
-    .min(4, "Should be at least 3 characters long")
+    .min(3, "Should be at least 3 characters long")
     .matches(loginRegex, "Login should start with a letter"),
   password: yup
     .string()
@@ -29,7 +29,7 @@ export const RegisterSchema = LoginSchema.concat(
     name: yup
       .string()
       .required(requiredText("Name"))
-      .min(4, "At least 3 characters")
+      .min(3, "At least 3 characters")
       .matches(nameRegex, "Only English letters are allowed"),
   }),
 );

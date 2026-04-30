@@ -1,30 +1,56 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
-import { useForm } from "react-hook-form";
+import axios from "axios";
+
+import { useForm, type SubmitHandler } from "react-hook-form";
 
 import AuthForm from "@/components/AuthForm/AuthForm";
 import InputAndLabel from "@/components/InputAndLabel/InputAndLabel";
 
-import "../../styles/Authorization.scss";
 import {
   type ResgisterSchemaTypes,
   RegisterSchema,
 } from "@/schemas/AuthSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import "../../styles/Authorization.scss";
+import { BASE_URL } from "@/consts/consts";
+import { useRouter } from "next/navigation";
+
 const Register: React.FC = () => {
+  const [serverError, setServerError] = useState<string>("");
+  const router = useRouter();
+
   const {
     register,
-    formState: { errors },
+    handleSubmit,
+    formState: { errors, isValid },
   } = useForm<ResgisterSchemaTypes>({
     resolver: yupResolver(RegisterSchema),
     mode: "onBlur",
   });
+
+  const onSubmit: SubmitHandler<ResgisterSchemaTypes> = (data) => {
+    const { confirm_password, ...otherData } = data;
+    async function sendData() {
+      try {
+        await axios.post(`${BASE_URL}/auth/register`, otherData);
+        router.push("/");
+      } catch (err: unknown) {
+        if (axios.isAxiosError(err)) {
+          const serverResponse = err.response?.data;
+          setServerError(serverResponse?.error || "Unexpected error occured");
+        }
+      }
+    }
+    sendData();
+  };
+
   return (
     <AuthForm heading="Register">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <InputAndLabel
           label="Login"
           name="login"
@@ -74,8 +100,10 @@ const Register: React.FC = () => {
           register={register}
           errors={errors}
         />
-
-        <button type="submit">Register</button>
+        {serverError && <p className="error-message">{serverError}</p>}
+        <button disabled={!isValid} type="submit">
+          Register
+        </button>
       </form>
     </AuthForm>
   );
