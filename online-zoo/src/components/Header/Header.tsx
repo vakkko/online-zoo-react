@@ -2,23 +2,15 @@
 
 import React, { useState } from "react";
 
-import { useRouter } from "next/navigation";
-
 import PageNavigation from "../PageNavigation/PageNavigation";
 import SocialNetworks from "../SocialNetworks/SocialNetworks";
+import AuthorizationBox from "./AuthorizationBox/AuthorizationBox";
 
 const Header: React.FC = () => {
   const [showAuthorization, setShowAuthorization] = useState<boolean>(false);
 
-  const router = useRouter();
-
   const handleAuthorizationToggle = () => {
     setShowAuthorization((prev) => !prev);
-  };
-
-  const handleNavigate = (url: string) => {
-    router.push(url);
-    setShowAuthorization(false);
   };
 
   return (
@@ -33,16 +25,7 @@ const Header: React.FC = () => {
             <span className="user-name hidden"></span>
           </button>
           {showAuthorization && (
-            <div className="authorization-box">
-              <ul>
-                <li>
-                  <a onClick={() => handleNavigate("/login")}>Sign in</a>
-                </li>
-                <li>
-                  <a onClick={() => handleNavigate("/register")}>Register</a>
-                </li>
-              </ul>
-            </div>
+            <AuthorizationBox setShowAuthorization={setShowAuthorization} />
           )}
         </div>
         <div id="auth-overlay" className="hidden"></div>
