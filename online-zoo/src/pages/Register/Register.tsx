@@ -36,7 +36,14 @@ const Register: React.FC = () => {
     const { confirm_password, ...otherData } = data;
     async function sendData() {
       try {
-        await axios.post(`${BASE_URL}/auth/register`, otherData);
+        const response = await axios.post(
+          `${BASE_URL}/auth/register`,
+          otherData,
+        );
+
+        sessionStorage.setItem("name", response.data.data.user.name);
+        sessionStorage.setItem("email", response.data.data.user.email);
+
         router.push("/");
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {

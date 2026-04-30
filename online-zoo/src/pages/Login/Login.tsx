@@ -33,7 +33,11 @@ const Login: React.FC = () => {
   const onSubmit: SubmitHandler<LoginSchemaTypes> = (data) => {
     async function sendData() {
       try {
-        await axios.post(`${BASE_URL}/auth/login`, data);
+        const response = await axios.post(`${BASE_URL}/auth/login`, data);
+
+        sessionStorage.setItem("name", response.data.data.user.name);
+        sessionStorage.setItem("email", response.data.data.user.email);
+
         router.push("/");
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
