@@ -6,9 +6,15 @@ import "./Donation.scss";
 
 const Donation: React.FC = () => {
   const [showDonationPopUp, setShowDonationPopUp] = useState<boolean>(false);
+  const [showInitialPopUp, setShowInitialPopUp] = useState<boolean>(true);
 
   const handleShowPopUp = () => {
     setShowDonationPopUp(true);
+    setShowInitialPopUp(true);
+  };
+
+  const handleInitialPopUpClose = () => {
+    setShowInitialPopUp(false);
   };
 
   return (
@@ -29,7 +35,12 @@ const Donation: React.FC = () => {
           </button>
         </div>
       </div>
-      {showDonationPopUp && <DonationPopUps />}
+      {showDonationPopUp && (
+        <DonationPopUps
+          showInitialPopUp={showInitialPopUp}
+          handleInitialPopUpClose={handleInitialPopUpClose}
+        />
+      )}
     </>
   );
 };
