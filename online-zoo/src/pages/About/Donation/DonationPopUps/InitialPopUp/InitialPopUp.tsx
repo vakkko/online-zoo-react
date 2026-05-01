@@ -4,7 +4,12 @@ import "./InitialPopUp.scss";
 
 const InitialPopUp: React.FC<InitialPopUpProps> = ({
   handleInitialPopUpClose,
+  handleShowStep1,
 }) => {
+  const handleOtherAmountClick = () => {
+    handleInitialPopUpClose();
+    handleShowStep1();
+  };
   return (
     <div className="initial-pop-up">
       <div className="image-container">
@@ -29,7 +34,9 @@ const InitialPopUp: React.FC<InitialPopUpProps> = ({
           <button>$50</button>
           <button>$80</button>
           <button>$100</button>
-          <button className="btn-other-amount">other amount</button>
+          <button onClick={handleOtherAmountClick} className="btn-other-amount">
+            other amount
+          </button>
         </div>
       </div>
     </div>
