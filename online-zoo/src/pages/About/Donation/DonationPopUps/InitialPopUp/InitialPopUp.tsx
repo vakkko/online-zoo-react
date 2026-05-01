@@ -1,6 +1,10 @@
+import type { InitialPopUpProps } from "./InitialPopUp.types";
+
 import "./InitialPopUp.scss";
 
-const InitialPopUp: React.FC = () => {
+const InitialPopUp: React.FC<InitialPopUpProps> = ({
+  handleInitialPopUpClose,
+}) => {
   return (
     <div className="initial-pop-up">
       <div className="image-container">
@@ -8,7 +12,7 @@ const InitialPopUp: React.FC = () => {
           src="./images/donation-pop-up/hand-touching.png"
           alt="animal and human hand-touching"
         />
-        <button className="btn-cancel">
+        <button onClick={handleInitialPopUpClose} className="btn-cancel">
           <img src="./images/donation-pop-up/x.png" alt="cancel" />
         </button>
       </div>

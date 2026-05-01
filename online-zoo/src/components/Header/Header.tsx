@@ -9,8 +9,10 @@ import UserInfoAndSignOut from "./UserInfoAndSignOut/UserInfoAndSignOut";
 
 const Header: React.FC = () => {
   const [showAuthorization, setShowAuthorization] = useState<boolean>(false);
-  const username = sessionStorage.getItem("name");
-  const userEmail = sessionStorage.getItem("email");
+  const username =
+    typeof window !== "undefined" ? sessionStorage.getItem("name") : "";
+  const userEmail =
+    typeof window !== "undefined" ? sessionStorage.getItem("email") : "";
   const authorized = username && userEmail;
 
   const handleAuthorizationToggle = () => {

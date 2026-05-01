@@ -9,8 +9,8 @@ const Donation: React.FC = () => {
 
   const handleShowPopUp = () => {
     setShowDonationPopUp(true);
-    console.log("inside");
   };
+
   return (
     <>
       <div className="donation-container">
