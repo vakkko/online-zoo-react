@@ -1,7 +1,11 @@
 import "./PopUpStep1.scss";
 import "../PopUpSteps.scss";
+import useGetData from "@/hooks/useGetData";
+import type { Animal } from "@/pages/About/PetsCarousel/Carousel/Carousel.types";
 
 const PopUpStep1: React.FC = () => {
+  const { data, error } = useGetData<Animal>(`pets`);
+
   return (
     <div className="donation-pop-up-step-1">
       <h3>make your donation</h3>
@@ -36,6 +40,11 @@ const PopUpStep1: React.FC = () => {
               <option defaultValue="" hidden>
                 Choose your favourite
               </option>
+              {data.map((animal) => (
+                <option value={animal.id} key={animal.id}>
+                  {animal.commonName}, {animal.name}
+                </option>
+              ))}
             </select>
             <img
               src="./images/donation-pop-up/arrow-down.png"
@@ -43,9 +52,11 @@ const PopUpStep1: React.FC = () => {
               className="select-arrow"
             />
           </div>
-          <p className="err-msg step-1 hidden">
-            Something went wrong, refresh the page
-          </p>
+          {error && (
+            <p className="err-msg step-1 ">
+              Something went wrong, refresh the page
+            </p>
+          )}
           <div className="gift-checkbox">
             <input id="gift" type="checkbox" />
             <label htmlFor="gift">Make this a monthly recurring gift</label>

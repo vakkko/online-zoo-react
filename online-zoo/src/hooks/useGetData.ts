@@ -1,4 +1,4 @@
-import axios, { AxiosError, CanceledError } from "axios";
+import axios, { CanceledError } from "axios";
 
 import { BASE_URL } from "../consts/consts";
 
