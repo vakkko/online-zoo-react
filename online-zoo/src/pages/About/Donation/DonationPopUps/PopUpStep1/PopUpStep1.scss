@@ -1,0 +1,89 @@
+@use "../../../../../styles/mixins" as *;
+@use "../../../../../styles/variables" as *;
+
+.donation-pop-up-step-1 {
+  display: none;
+  .choose-dontation-container {
+    background-color: $white;
+
+    .choose-donation-amount {
+      @include flexColumn(4rem);
+
+      label:not(.gift-checkbox > label, .other-amount) {
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $white;
+        border-radius: 5px;
+        padding: 2.15rem;
+      }
+
+      input {
+        @include regularText;
+        width: 33%;
+        padding: 2rem;
+        border: 1px solid $black;
+        border-radius: 5px;
+        height: 6.5rem;
+      }
+
+      .amount-box {
+        margin-top: 4rem;
+        h5 {
+          @include regularText;
+          margin-bottom: 1rem;
+
+          span {
+            color: $lightGreen;
+          }
+        }
+
+        & > div {
+          @include flexAlignCenter;
+          justify-content: space-between;
+
+          button {
+            @include buttonStyles(rgba(0, 160, 146, 0.5), $white);
+            padding: 2.15rem 2.45rem;
+          }
+        }
+      }
+
+      .other-amount,
+      .select-container {
+        @include flexAlignCenter(4rem);
+        flex-wrap: wrap;
+        label {
+          background-color: #80cfc8;
+        }
+      }
+
+      .other-amount {
+        label {
+          background-color: #00a092;
+        }
+        #err-message-amount {
+          color: #dc3545;
+          font-size: 1.3rem;
+        }
+      }
+
+      .gift-checkbox {
+        @include flexAlignCenter(1rem);
+
+        input {
+          width: 3rem;
+        }
+
+        label {
+          @include regularText();
+          color: $black;
+        }
+      }
+    }
+  }
+  .next-steps {
+    gap: 32.5rem;
+    justify-content: space-between;
+  }
+}

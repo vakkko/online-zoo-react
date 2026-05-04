@@ -1,0 +1,117 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.donation-pop-up-step-1,
+.donation-pop-up-step-2,
+.donation-pop-up-step-3 {
+  @include flexColumn(5rem);
+  padding-bottom: 5rem;
+  background-color: $white;
+
+  & > div {
+    padding: 0 12rem;
+  }
+  h3 {
+    @include heading3styles;
+    color: $white;
+    background-color: $orange;
+    padding: 4.2rem 20rem;
+  }
+  h4 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--black);
+  }
+
+  hr {
+    background-color: #a4a8ae;
+    margin-top: 1rem;
+  }
+
+  .next-steps {
+    @include flexAlignCenter();
+    & > svg {
+      circle.active {
+        fill: $lightGreen;
+      }
+    }
+
+    .btn-next {
+      @include flexAlignCenter(1rem);
+      @include buttonStyles($lightGreen, $white);
+      padding: 2.6rem 5.7rem;
+
+      &:hover {
+        background-color: $lightGreenHover;
+      }
+    }
+  }
+}
+
+.donation-pop-up-step-1,
+.donation-pop-up-step-3 {
+  select {
+    @include regularText;
+    border: 1px solid $black;
+    border-radius: 5px;
+    flex-grow: 1;
+    padding: 1.9rem;
+    text-align: center;
+    color: #a4a8ae;
+    appearance: none;
+    cursor: pointer;
+  }
+  .select-arrow {
+    position: absolute;
+    right: 0;
+    padding: 2.9rem 0.8rem 2.8rem;
+    background-color: $lightGreen;
+    pointer-events: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: 1px solid $black;
+  }
+  .select-container {
+    position: relative;
+  }
+}
+
+.donation-pop-up-step-2,
+.donation-pop-up-step-3 {
+  form {
+    width: 100%;
+    margin: 4rem 0 1rem;
+    label {
+      .asterisk {
+        color: $lightGreen;
+      }
+    }
+    input {
+      margin-top: 1rem;
+      padding: 1.7rem 2rem;
+      border: 1px solid $black;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      width: 100%;
+    }
+    label,
+    input {
+      @include regularText;
+    }
+  }
+
+  .next-steps {
+    .btn-back {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 150%;
+      text-decoration: underline;
+      color: $lightGreen;
+
+      &:hover {
+        color: $lightGreenHover;
+      }
+    }
+  }
+}
