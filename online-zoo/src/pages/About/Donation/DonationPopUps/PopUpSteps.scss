@@ -42,7 +42,8 @@
       @include buttonStyles($lightGreen, $white);
       padding: 2.6rem 5.7rem;
 
-      &:hover {
+      &:hover,
+      &:disabled {
         background-color: $lightGreenHover;
       }
     }

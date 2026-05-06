@@ -27,6 +27,8 @@ const PopUpStep1: React.FC = () => {
     if (target.tagName === "SELECT") setAnimal(target.value);
   };
 
+  const enableNext = amount && animal;
+
   return (
     <div className="donation-pop-up-step-1">
       <h3>make your donation</h3>
@@ -122,7 +124,7 @@ const PopUpStep1: React.FC = () => {
             </clipPath>
           </defs>
         </svg>
-        <button disabled className="btn-next">
+        <button disabled={!enableNext} className="btn-next">
           next
           <svg
             width="25"
