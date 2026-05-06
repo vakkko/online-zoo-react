@@ -1,10 +1,31 @@
+import { useState } from "react";
+
+import useGetData from "@/hooks/useGetData";
+
+import type { Animal } from "@/pages/About/PetsCarousel/Carousel/Carousel.types";
+
 import "./PopUpStep1.scss";
 import "../PopUpSteps.scss";
-import useGetData from "@/hooks/useGetData";
-import type { Animal } from "@/pages/About/PetsCarousel/Carousel/Carousel.types";
 
 const PopUpStep1: React.FC = () => {
   const { data, error } = useGetData<Animal>(`pets`);
+  const [amount, setAmount] = useState<string>("");
+  const [animal, setAnimal] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(e.target.value);
+  };
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLButtonElement;
+    console.log(target.tagName);
+    if (target.tagName === "BUTTON") setAmount(target.value);
+  };
+
+  const handleOptionClick = (e: React.MouseEvent<HTMLSelectElement>) => {
+    const target = e.target as HTMLOptionElement;
+    if (target.tagName === "SELECT") setAnimal(target.value);
+  };
 
   return (
     <div className="donation-pop-up-step-1">
@@ -17,7 +38,7 @@ const PopUpStep1: React.FC = () => {
             <h5>
               <span>*</span>Choose your donation amount:
             </h5>
-            <div>
+            <div onClick={handleButtonClick}>
               <button value="10">$10</button>
               <button value="20">$20</button>
               <button value="30">$30</button>
@@ -28,7 +49,13 @@ const PopUpStep1: React.FC = () => {
           </div>
           <div className="other-amount">
             <label htmlFor="amount">Other amount</label>
-            <input type="text" id="amount" autoComplete="off" />
+            <input
+              value={amount}
+              onChange={handleChange}
+              type="text"
+              id="amount"
+              autoComplete="off"
+            />
             <br />
             <p id="err-message-amount" className="hidden">
               Other amount value should be only number
@@ -36,7 +63,13 @@ const PopUpStep1: React.FC = () => {
           </div>
           <div className="select-container">
             <label htmlFor="pet">htmlFor special pet</label>
-            <select aria-placeholder="name" name="pet" required id="pet">
+            <select
+              onClick={handleOptionClick}
+              aria-placeholder="name"
+              name="pet"
+              required
+              id="pet"
+            >
               <option defaultValue="" hidden>
                 Choose your favourite
               </option>
