@@ -46,6 +46,10 @@
       &:disabled {
         background-color: $lightGreenHover;
       }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
   }
 }

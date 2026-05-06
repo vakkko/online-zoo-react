@@ -13,12 +13,13 @@ const PopUpStep1: React.FC = () => {
   const [animal, setAnimal] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(e.target.value);
+    const value = e.target.value;
+    const numberRegex = /^\d*$/;
+    if (numberRegex.test(value)) setAmount(e.target.value);
   };
 
   const handleButtonClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLButtonElement;
-    console.log(target.tagName);
     if (target.tagName === "BUTTON") setAmount(target.value);
   };
 
