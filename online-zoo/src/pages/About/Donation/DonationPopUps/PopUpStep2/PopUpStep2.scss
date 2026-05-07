@@ -1,0 +1,18 @@
+@use "../../../../../styles/mixins" as *;
+
+.donation-pop-up-step-2 {
+  .details-inputs {
+    form {
+      input {
+        width: 100%;
+      }
+    }
+    p {
+      @include regularText;
+    }
+  }
+
+  .next-steps {
+    gap: 10.3rem;
+  }
+}

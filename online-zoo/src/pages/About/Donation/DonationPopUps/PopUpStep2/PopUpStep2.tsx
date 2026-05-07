@@ -1,3 +1,5 @@
+import "./PopUpStep2.scss";
+
 const PopUpStep2: React.FC = () => {
   return (
     <div className="donation-pop-up-step-2">
