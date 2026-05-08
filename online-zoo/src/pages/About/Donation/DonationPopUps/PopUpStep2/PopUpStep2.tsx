@@ -6,6 +6,7 @@ import "./PopUpStep2.scss";
 
 const PopUpStep2: React.FC = () => {
   const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
   return (
     <div className="donation-pop-up-step-2">
@@ -32,10 +33,9 @@ const PopUpStep2: React.FC = () => {
             id="email"
             autocomplete="email"
             placeholder="Enter your email"
+            value={email}
+            setState={setEmail}
           />
-          <p className="err-msg email ">
-            Email should follow the standard email format
-          </p>
         </form>
         <p>
           You will receive emails from the Online Zoo, including updates and

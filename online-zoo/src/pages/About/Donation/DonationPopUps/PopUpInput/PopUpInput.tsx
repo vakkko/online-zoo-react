@@ -19,9 +19,17 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
     const value = e.target.value;
     setState(value);
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     if (id === "name") {
-      if (!nameRegex.test(value)) {
+      if (!nameRegex.test(value) && value.length > 0) {
         setErrorMsg("Name should contains only letters");
+        return;
+      }
+      setErrorMsg("");
+    } else if (id === "email") {
+      if (!emailRegex.test(value) && value.length > 0) {
+        setErrorMsg("Email should follow the standard email format");
         return;
       }
       setErrorMsg("");
