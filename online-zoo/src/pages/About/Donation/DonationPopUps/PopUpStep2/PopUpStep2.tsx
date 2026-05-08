@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 import PopUpInput from "../PopUpInput/PopUpInput";
+
 import "./PopUpStep2.scss";
 
 const PopUpStep2: React.FC = () => {
+  const [name, setName] = useState<string>("");
+
   return (
     <div className="donation-pop-up-step-2">
       <h3>make your donation</h3>
@@ -16,11 +21,10 @@ const PopUpStep2: React.FC = () => {
             id="name"
             placeholder="First and last name"
             autocomplete="name"
+            value={name}
+            setState={setName}
           />
           <br />
-          <p className="err-msg name hidden">
-            Name should contains only letters
-          </p>
           <PopUpInput
             htmlFor="email"
             label="Your Email Address"
@@ -29,7 +33,7 @@ const PopUpStep2: React.FC = () => {
             autocomplete="email"
             placeholder="Enter your email"
           />
-          <p className="err-msg email hidden">
+          <p className="err-msg email ">
             Email should follow the standard email format
           </p>
         </form>

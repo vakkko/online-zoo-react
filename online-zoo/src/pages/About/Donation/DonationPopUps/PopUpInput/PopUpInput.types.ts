@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 export interface PopUpInputProps {
   htmlFor: string;
   label: string;
@@ -5,4 +7,6 @@ export interface PopUpInputProps {
   id: string;
   placeholder: string;
   autocomplete: string;
+  value: string;
+  setState: Dispatch<SetStateAction<string>>;
 }
