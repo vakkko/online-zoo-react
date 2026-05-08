@@ -1,3 +1,4 @@
+import PopUpInput from "../PopUpInput/PopUpInput";
 import "./PopUpStep2.scss";
 
 const PopUpStep2: React.FC = () => {
@@ -8,28 +9,24 @@ const PopUpStep2: React.FC = () => {
         <h4>Billing Information:</h4>
         <hr />
         <form>
-          <label htmlFor="name">
-            <span className="asterisk">*</span> Your Name
-          </label>
-          <br />
-          <input
+          <PopUpInput
+            htmlFor="name"
+            label="Your Name"
             type="text"
             id="name"
             placeholder="First and last name"
-            autoComplete="name"
+            autocomplete="name"
           />
           <br />
           <p className="err-msg name hidden">
             Name should contains only letters
           </p>
-          <label htmlFor="email">
-            <span className="asterisk">*</span> Your Email Address
-          </label>
-          <br />
-          <input
+          <PopUpInput
+            htmlFor="email"
+            label="Your Email Address"
             type="email"
             id="email"
-            autoComplete="email"
+            autocomplete="email"
             placeholder="Enter your email"
           />
           <p className="err-msg email hidden">
@@ -50,7 +47,7 @@ const PopUpStep2: React.FC = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_38782_9082)">
+          <g clipPath="url(#clip0_38782_9082)">
             <circle
               className="active"
               cx="5"
