@@ -1,0 +1,64 @@
+@use "../../../../../styles/mixins" as *;
+@use "../../../../../styles/variables" as *;
+
+.donation-pop-up-step-3 {
+  .select-container.saved-card {
+    align-self: flex-start;
+    width: fit-content;
+    margin-top: 2rem;
+
+    img {
+      background-color: #80cfc8;
+    }
+
+    #saved-cards {
+      padding: 1.9rem 7rem;
+    }
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+
+    .credit-card-input {
+      grid-column: span 2;
+    }
+
+    .select-container {
+      label {
+        display: block;
+      }
+      select {
+        width: 100%;
+      }
+      .select-arrow {
+        background-color: #80cfc8;
+      }
+    }
+
+    .select-container.year {
+      align-self: flex-end;
+    }
+  }
+
+  #save-card-checkbox {
+    @include regularText();
+    @include flexAlignCenter(1rem);
+    margin-top: 3rem;
+  }
+
+  .next-steps {
+    justify-content: space-between;
+    gap: 11rem;
+
+    .btn-complete-donation {
+      @include buttonStyles($orange, $white);
+      @include flexAlignCenter(1rem);
+      padding: 2.6rem 5.5rem;
+
+      &:hover {
+        background-color: $orangeHover;
+      }
+    }
+  }
+}
