@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import PopUpInput from "../PopUpInput/PopUpInput";
 
+import type { PopUpStep2Props } from "./PopUpStep2.types";
+
 import "./PopUpStep2.scss";
 
-const PopUpStep2: React.FC = () => {
+const PopUpStep2: React.FC<PopUpStep2Props> = ({ handleNextClick }) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
 
@@ -78,7 +80,11 @@ const PopUpStep2: React.FC = () => {
           </defs>
         </svg>
         <button className="btn-back">Back</button>
-        <button disabled={!enable} className="btn-next">
+        <button
+          disabled={!enable}
+          onClick={handleNextClick}
+          className="btn-next"
+        >
           next
           <svg
             width="25"

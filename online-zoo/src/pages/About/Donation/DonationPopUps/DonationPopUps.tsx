@@ -7,6 +7,7 @@ import type { DonationPopUpsProps } from "./DonationPopUps.types";
 
 import "./DonationPopUps.scss";
 import PopUpStep2 from "./PopUpStep2/PopUpStep2";
+import PopUpStep3 from "./PopUpStep3/PopUpStep3";
 
 const DonationPopUps: React.FC<DonationPopUpsProps> = ({
   handleInitialPopUpClose,
@@ -14,6 +15,7 @@ const DonationPopUps: React.FC<DonationPopUpsProps> = ({
 }) => {
   const [showStep1, setShowStep1] = useState<boolean>(false);
   const [showStep2, setShowStep2] = useState<boolean>(false);
+  const [showStep3, setShowStep3] = useState<boolean>(false);
 
   const handleShowStep = (
     setShowStep: Dispatch<SetStateAction<boolean>>,
@@ -36,7 +38,12 @@ const DonationPopUps: React.FC<DonationPopUpsProps> = ({
           handleNextClick={() => handleShowStep(setShowStep2, setShowStep1)}
         />
       )}
-      {showStep2 && <PopUpStep2 />}
+      {showStep2 && (
+        <PopUpStep2
+          handleNextClick={() => handleShowStep(setShowStep3, setShowStep2)}
+        />
+      )}
+      {showStep3 && <PopUpStep3 />}
     </div>
   );
 };
