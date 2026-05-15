@@ -58,7 +58,6 @@
 .donation-pop-up-step-3 {
   select {
     @include regularText;
-    border: 1px solid $black;
     border-radius: 5px;
     flex-grow: 1;
     padding: 1.9rem;
@@ -75,7 +74,6 @@
     pointer-events: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-left: 1px solid $black;
   }
   .select-container {
     position: relative;

@@ -13,6 +13,7 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
   autocomplete,
   value,
   setState,
+  maxLength,
 }) => {
   const [errorMsg, setErrorMsg] = useState<string>("");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +21,7 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
     setState(value);
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const cardRegex = /^[0-9]+$/;
 
     if (id === "name") {
       if (!nameRegex.test(value) && value.length > 0) {
@@ -30,6 +32,12 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
     } else if (id === "email") {
       if (!emailRegex.test(value) && value.length > 0) {
         setErrorMsg("Email should follow the standard email format");
+        return;
+      }
+      setErrorMsg("");
+    } else if (id === "card") {
+      if (!cardRegex.test(value)) {
+        setErrorMsg("Card number should contain only numeric characters.");
         return;
       }
       setErrorMsg("");
@@ -48,6 +56,7 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
         id={id}
         placeholder={placeholder}
         autoComplete={autocomplete}
+        maxLength={maxLength}
       />
       <p className="err-msg">{errorMsg}</p>
     </>

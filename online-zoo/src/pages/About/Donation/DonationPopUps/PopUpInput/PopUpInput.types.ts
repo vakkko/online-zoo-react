@@ -9,4 +9,5 @@ export interface PopUpInputProps {
   autocomplete?: string;
   value: string;
   setState: Dispatch<SetStateAction<string>>;
+  maxLength?: number;
 }

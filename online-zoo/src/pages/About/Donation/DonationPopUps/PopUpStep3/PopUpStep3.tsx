@@ -26,6 +26,7 @@ const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
               placeholder=""
               value={card}
               setState={setCard}
+              maxLength={16}
             />
           </div>
           <div>
@@ -37,6 +38,7 @@ const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
               placeholder=""
               value={cvvNumber}
               setState={setCvvNumber}
+              maxLength={3}
             />
           </div>
           <div className="select-container">
