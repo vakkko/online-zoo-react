@@ -56,7 +56,8 @@
       @include flexAlignCenter(1rem);
       padding: 2.6rem 5.5rem;
 
-      &:hover {
+      &:hover,
+      &:disabled {
         background-color: $orangeHover;
       }
     }

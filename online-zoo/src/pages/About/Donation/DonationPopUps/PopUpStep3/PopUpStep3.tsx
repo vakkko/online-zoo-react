@@ -12,6 +12,7 @@ import {
 } from "react";
 
 import "./PopUpStep3.scss";
+import { cardRegex } from "@/schemas/AuthSchema";
 
 const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
   const [card, setCard] = useState<string>("");
@@ -25,6 +26,14 @@ const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
   ) => {
     setState(e.target.value);
   };
+
+  const enable =
+    cardRegex.test(card) &&
+    card.length === 16 &&
+    cvvNumber.length === 3 &&
+    cardRegex.test(cvvNumber) &&
+    month &&
+    year;
 
   return (
     <div className="donation-pop-up-step-3">
@@ -95,7 +104,11 @@ const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
               </option>
               {Array.from({ length: 40 }, (_, index) => {
                 const number = index + 2005;
-                return <option key={number}>{number}</option>;
+                return (
+                  <option value={number} key={number}>
+                    {number}
+                  </option>
+                );
               })}
             </select>
             <img
@@ -165,7 +178,7 @@ const PopUpStep3: React.FC<PopUpStep3Props> = ({ handleBackClick }) => {
         <button onClick={handleBackClick} className="btn-back">
           Back
         </button>
-        <button disabled className="btn-complete-donation">
+        <button disabled={!enable} className="btn-complete-donation">
           complete donation
           <svg
             width="25"
