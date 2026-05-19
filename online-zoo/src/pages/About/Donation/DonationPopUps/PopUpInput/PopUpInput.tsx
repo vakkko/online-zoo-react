@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 
-import { cardRegex, nameRegex } from "@/schemas/AuthSchema";
+import { cardRegex, emailRegex, nameRegex } from "@/schemas/AuthSchema";
 
 import type { PopUpInputProps } from "./PopUpInput.types";
 
@@ -20,8 +20,6 @@ const PopUpInput: React.FC<PopUpInputProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setState(value);
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (id === "name") {
       if (!nameRegex.test(value) && value.length > 0) {

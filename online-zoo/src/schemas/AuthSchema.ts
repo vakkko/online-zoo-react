@@ -4,6 +4,7 @@ const loginRegex = /^[a-zA-Z ]/;
 const passwordRegex = /^(?=.*[^a-zA-Z0-9])[a-zA-Z]/;
 export const nameRegex = /^[a-zA-Z\s]+$/;
 export const cardRegex = /^[0-9]+$/;
+export const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const requiredText = (name: string) => name + " is required";
 

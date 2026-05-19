@@ -4,6 +4,8 @@ import PopUpInput from "../PopUpInput/PopUpInput";
 
 import type { PopUpStep2Props } from "./PopUpStep2.types";
 
+import { emailRegex, nameRegex } from "@/schemas/AuthSchema";
+
 import "./PopUpStep2.scss";
 
 const PopUpStep2: React.FC<PopUpStep2Props> = ({
@@ -13,7 +15,8 @@ const PopUpStep2: React.FC<PopUpStep2Props> = ({
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
 
-  const enable = name.length > 0 && email.length > 0;
+  const enable =
+    name.length > 3 && nameRegex.test(name) && emailRegex.test(email);
   return (
     <div className="donation-pop-up-step-2">
       <h3>make your donation</h3>
