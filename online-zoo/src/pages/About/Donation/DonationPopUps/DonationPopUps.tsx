@@ -17,6 +17,15 @@ const DonationPopUps: React.FC<DonationPopUpsProps> = ({
   const [showStep2, setShowStep2] = useState<boolean>(false);
   const [showStep3, setShowStep3] = useState<boolean>(false);
 
+  const [amount, setAmount] = useState<string>("");
+  const [petId, setPetId] = useState<string>("");
+  const [name, setName] = useState<string | null>(() =>
+    sessionStorage.getItem("name"),
+  );
+  const [email, setEmail] = useState<string | null>(() =>
+    sessionStorage.getItem("email"),
+  );
+
   const handleShowStep = (
     setShowStep: Dispatch<SetStateAction<boolean>>,
     setCloseStep?: Dispatch<SetStateAction<boolean>>,
@@ -36,12 +45,20 @@ const DonationPopUps: React.FC<DonationPopUpsProps> = ({
       {showStep1 && (
         <PopUpStep1
           handleNextClick={() => handleShowStep(setShowStep2, setShowStep1)}
+          amount={amount}
+          setAmount={setAmount}
+          petId={petId}
+          setPetId={setPetId}
         />
       )}
       {showStep2 && (
         <PopUpStep2
           handleNextClick={() => handleShowStep(setShowStep3, setShowStep2)}
           handleBackClick={() => handleShowStep(setShowStep1, setShowStep2)}
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
         />
       )}
       {showStep3 && (

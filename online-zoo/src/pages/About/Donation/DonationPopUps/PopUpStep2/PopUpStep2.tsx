@@ -11,14 +11,11 @@ import "./PopUpStep2.scss";
 const PopUpStep2: React.FC<PopUpStep2Props> = ({
   handleNextClick,
   handleBackClick,
+  email,
+  setEmail,
+  name,
+  setName,
 }) => {
-  const [name, setName] = useState<string | null>(() =>
-    sessionStorage.getItem("name"),
-  );
-  const [email, setEmail] = useState<string | null>(() =>
-    sessionStorage.getItem("email"),
-  );
-
   const enable =
     name &&
     email &&

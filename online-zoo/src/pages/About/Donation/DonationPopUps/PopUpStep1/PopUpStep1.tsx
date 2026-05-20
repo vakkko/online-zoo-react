@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import useGetData from "@/hooks/useGetData";
 
 import type { Animal } from "@/pages/About/PetsCarousel/Carousel/Carousel.types";
@@ -9,10 +7,14 @@ import type { PopUpStep1Props } from "./PopUpStep1.types";
 import "./PopUpStep1.scss";
 import "../PopUpSteps.scss";
 
-const PopUpStep1: React.FC<PopUpStep1Props> = ({ handleNextClick }) => {
+const PopUpStep1: React.FC<PopUpStep1Props> = ({
+  handleNextClick,
+  amount,
+  setAmount,
+  petId,
+  setPetId,
+}) => {
   const { data, error } = useGetData<Animal>(`pets`);
-  const [amount, setAmount] = useState<string>("");
-  const [animal, setAnimal] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -27,10 +29,10 @@ const PopUpStep1: React.FC<PopUpStep1Props> = ({ handleNextClick }) => {
 
   const handleOptionClick = (e: React.MouseEvent<HTMLSelectElement>) => {
     const target = e.target as HTMLOptionElement;
-    if (target.tagName === "SELECT") setAnimal(target.value);
+    if (target.tagName === "SELECT") setPetId(target.value);
   };
 
-  const enableNext = amount.length && animal.length;
+  const enableNext = amount.length && petId.length;
 
   return (
     <div className="donation-pop-up-step-1">
