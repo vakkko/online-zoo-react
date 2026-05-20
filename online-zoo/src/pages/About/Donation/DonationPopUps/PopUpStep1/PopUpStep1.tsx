@@ -11,8 +11,8 @@ const PopUpStep1: React.FC<PopUpStep1Props> = ({
   handleNextClick,
   amount,
   setAmount,
-  petId,
   setPetId,
+  enableNextStep1,
 }) => {
   const { data, error } = useGetData<Animal>(`pets`);
 
@@ -31,8 +31,6 @@ const PopUpStep1: React.FC<PopUpStep1Props> = ({
     const target = e.target as HTMLOptionElement;
     if (target.tagName === "SELECT") setPetId(target.value);
   };
-
-  const enableNext = amount.length && petId.length;
 
   return (
     <div className="donation-pop-up-step-1">
@@ -131,7 +129,7 @@ const PopUpStep1: React.FC<PopUpStep1Props> = ({
         </svg>
         <button
           onClick={handleNextClick}
-          disabled={!enableNext}
+          disabled={!enableNextStep1}
           className="btn-next"
         >
           next

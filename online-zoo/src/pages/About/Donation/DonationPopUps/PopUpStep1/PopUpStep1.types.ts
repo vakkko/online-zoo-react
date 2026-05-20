@@ -6,4 +6,5 @@ export interface PopUpStep1Props {
   setAmount: Dispatch<SetStateAction<string>>;
   petId: string;
   setPetId: Dispatch<SetStateAction<string>>;
+  enableNextStep1: number;
 }

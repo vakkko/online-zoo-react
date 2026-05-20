@@ -7,4 +7,5 @@ export interface PopUpStep2Props {
   setName: Dispatch<SetStateAction<string | null>>;
   email: string | null;
   setEmail: Dispatch<SetStateAction<string | null>>;
+  enableNextStep2: boolean | "" | null;
 }

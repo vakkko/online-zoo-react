@@ -1,10 +1,6 @@
-import { useState } from "react";
-
 import PopUpInput from "../PopUpInput/PopUpInput";
 
 import type { PopUpStep2Props } from "./PopUpStep2.types";
-
-import { emailRegex, nameRegex } from "@/schemas/AuthSchema";
 
 import "./PopUpStep2.scss";
 
@@ -15,13 +11,8 @@ const PopUpStep2: React.FC<PopUpStep2Props> = ({
   setEmail,
   name,
   setName,
+  enableNextStep2,
 }) => {
-  const enable =
-    name &&
-    email &&
-    name.length > 3 &&
-    nameRegex.test(name) &&
-    emailRegex.test(email);
   return (
     <div className="donation-pop-up-step-2">
       <h3>make your donation</h3>
@@ -94,7 +85,7 @@ const PopUpStep2: React.FC<PopUpStep2Props> = ({
           Back
         </button>
         <button
-          disabled={!enable}
+          disabled={!enableNextStep2}
           onClick={handleNextClick}
           className="btn-next"
         >
